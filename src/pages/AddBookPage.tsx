@@ -1,4 +1,4 @@
-// src/pages/AddBookPage.tsx
+
 import { useNavigate } from "react-router-dom";
 import Layout from "@/layout/MainLayout";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -7,7 +7,7 @@ import BookForm, { BookFormValues } from "../components/Book/BookForm";
 import { useError } from "../context/ErrorContext";
 import { useSuccess } from "../context/SucessContext";
 import bookService from "../api/bookService";
-import { validateBook } from "../components/Book/validastions";
+import { validateBook } from "../components/Book/validations";
 
 const AddBookPage = () => {
   const navigate = useNavigate();
