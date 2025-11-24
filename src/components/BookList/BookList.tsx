@@ -1,4 +1,4 @@
-// src/components/BookList/BookList.tsx
+
 import { useBooks } from "../../hooks/useBooks";
 import BookFilter from "./BookFilter";
 import BookTable from "./BookTable";

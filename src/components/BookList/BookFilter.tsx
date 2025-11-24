@@ -1,4 +1,4 @@
-// src/components/BookList/BookFilter.tsx
+
 import type { Filters } from "../../api/bookService";
 import { Input } from "@/components/ui/input";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";

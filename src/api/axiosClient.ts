@@ -1,9 +1,9 @@
-// src/api/axiosClient.ts
+
 import axios from "axios";
 import { getErrorSetter } from "../context/ErrorContext";
 
 const axiosClient = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE || "https://localhost:7132/api",
+  baseURL: "https://localhost:7132/api", // o la URL que realmente funcione
   headers: { "Content-Type": "application/json" },
 });
 
