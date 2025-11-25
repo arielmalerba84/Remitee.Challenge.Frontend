@@ -1,73 +1,80 @@
-# React + TypeScript + Vite
+## Remitee Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Frontend de la aplicación **Remitee** desarrollado en **React** con **TypeScript** y **Vite**. Permite la gestión de libros, incluyendo visualización, filtrado, paginación y creación de nuevos libros.
 
-Currently, two official plugins are available:
+## Tecnologías utilizadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React 19** + **TypeScript**
+- **Vite** como bundler
+- **TailwindCSS** para estilos
+- **Material UI** e **Iconos**: @mui/material, @mui/icons-material, @heroicons/react
+- **Axios** para llamadas a API
+- **React Router DOM** para routing
+- **React Hook Form** y **Zod** para validaciones
+- Context API para manejo global de errores y mensajes de éxito
 
-## React Compiler
+## Estructura del proyecto
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+src/
+├─ api/ # Cliente Axios y servicios
+├─ components/ # Componentes UI reutilizables
+├─ context/ # Contextos globales (Errores, Éxitos)
+├─ hooks/ # Custom hooks (useBooks)
+├─ layout/ # Layout principal
+├─ pages/ # Páginas de la aplicación
+└─ App.tsx # Rutas y punto de entrada
 
-## Expanding the ESLint configuration
+bash
+Copiar código
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Instalación
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+1. Clonar el repositorio:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+```bash
+git clone https://github.com/arielmalerba84/Remitee.Challenge.Frontend.git
+cd Remitee.Challenge.Frontend
+Instalar dependencias:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+bash
+Copiar código
+npm install
+Ejecutar el proyecto en modo desarrollo:
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+bash
+Copiar código
+npm run dev
+Por defecto, Vite levantará la aplicación en http://localhost:5173.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Uso
+Listado de libros: página principal /
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Filtrado por título, descripción y año de publicación
+
+Paginación de resultados
+
+Agregar libro: página /add-book
+
+Formulario con validaciones en frontend
+
+Manejo de errores y mensajes de éxito globales
+
+Validaciones principales
+Título: obligatorio, máximo 100 caracteres
+
+Descripción: obligatoria, máximo 150 caracteres
+
+Año de publicación: obligatorio, número menor o igual al año actual
+
+Contextos globales
+ErrorContext: muestra errores de backend o conexión en un banner global
+
+SuccessContext: muestra mensajes de éxito en un banner global
+
+Scripts disponibles
+bash
+Copiar código
+npm run dev      # Levanta el servidor de desarrollo
+npm run build    # Compila la aplicación para producción
+npm run preview  # Previsualiza el build
+npm run lint     # Corre ESLint sobre el código
